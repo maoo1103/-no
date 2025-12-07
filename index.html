@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>喂胃No</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              cream: {
+                50: '#FFFBE6', // Slightly warmer yellow-tinted white
+                100: '#FFF0C2',
+                200: '#FFE08A',
+              },
+              pastel: {
+                pink: '#FF8866', // Vibrant Coral/Orange (Replaces light pink)
+                blue: '#4DA3FF', // Vibrant Sky Blue
+                yellow: '#FFD147', // Vibrant Sunny Yellow
+                green: '#4DD6B6', // Vibrant Mint
+                purple: '#D98CD9', // Vibrant Orchid
+                orange: '#FF9F4D', // Deep Orange
+              },
+            },
+            animation: {
+              'breathe-slow': 'breatheSlow 6s ease-in-out infinite',
+              'breathe-deep': 'breatheDeep 19s linear forwards', // 4+7+8 = 19s cycle
+              'stomach-churn': 'stomachChurn 8s ease-in-out infinite',
+              'float': 'float 3s ease-in-out infinite',
+              'pop': 'pop 0.3s ease-out forwards',
+              'celebrate': 'celebrate 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards',
+              'blob': 'blob 10s infinite alternate',
+            },
+            keyframes: {
+              breatheSlow: {
+                '0%, 100%': { transform: 'scale(1)' },
+                '50%': { transform: 'scale(1.05)' },
+              },
+              breatheDeep: {
+                '0%': { transform: 'scale(1)' },     // Start
+                '20%': { transform: 'scale(1.3)' },  // Inhale (4s approx)
+                '55%': { transform: 'scale(1.3)' },  // Hold (7s approx)
+                '100%': { transform: 'scale(1)' },   // Exhale (8s approx)
+              },
+              stomachChurn: {
+                '0%, 100%': { transform: 'scale(1) rotate(0deg) translateY(0)' },
+                '25%': { transform: 'scale(1.02) rotate(1deg) translateY(-2px)' },
+                '50%': { transform: 'scale(1.04) rotate(-1deg) translateY(0)' },
+                '75%': { transform: 'scale(1.02) rotate(1deg) translateY(2px)' },
+              },
+              float: {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-10px)' },
+              },
+              pop: {
+                '0%': { transform: 'scale(1)' },
+                '50%': { transform: 'scale(1.2)' },
+                '100%': { transform: 'scale(0)', opacity: 0 },
+              },
+              celebrate: {
+                '0%': { transform: 'scale(0.5)', opacity: 0 },
+                '100%': { transform: 'scale(1)', opacity: 1 },
+              },
+              blob: {
+                '0%': { borderRadius: '60% 40% 30% 70% / 60% 30% 70% 40%' },
+                '50%': { borderRadius: '30% 60% 70% 40% / 50% 60% 30% 60%' },
+                '100%': { borderRadius: '60% 40% 30% 70% / 60% 30% 70% 40%' },
+              }
+            }
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        background-color: #FFFBE6;
+        font-family: "M PLUS Rounded 1c", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      }
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.31.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.1/",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.556.0",
+    "recharts": "https://aistudiocdn.com/recharts@^3.5.1",
+    "react/": "https://aistudiocdn.com/react@^19.2.1/",
+    "react": "https://aistudiocdn.com/react@^19.2.1"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
